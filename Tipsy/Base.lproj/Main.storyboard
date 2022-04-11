@@ -180,7 +180,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="calculateButtonPressed:" destination="aWD-Wu-5mM" eventType="touchUpInside" id="6uc-N3-TM0"/>
-                                    <action selector="calculatePressed:" destination="aWD-Wu-5mM" eventType="touchUpInside" id="rTh-Qc-Dhs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -204,6 +203,7 @@
                         <outlet property="tenPctButton" destination="aMQ-vZ-2Xa" id="zws-dz-K3d"/>
                         <outlet property="twentyPctButton" destination="fa9-SO-uBo" id="QVU-8l-USG"/>
                         <outlet property="zeroPctButton" destination="gJD-g9-6Ct" id="Aex-4q-rM4"/>
+                        <segue destination="7Da-E1-wKB" kind="modal" identifier="goToResults" id="9Pv-S7-YPx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYN-Xj-Sel" sceneMemberID="firstResponder"/>
@@ -215,7 +215,7 @@
             <objects>
                 <viewController id="7Da-E1-wKB" customClass="ResultsViewController" customModule="Tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AcA-jN-ZIC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKI-zN-kPc">
@@ -252,7 +252,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a00-3t-GKl">
-                                <rect key="frame" x="107" y="808" width="200" height="54"/>
+                                <rect key="frame" x="107" y="788" width="200" height="54"/>
                                 <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="ghb-qx-qf9"/>
@@ -267,7 +267,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="recalculateButtonPressed:" destination="7Da-E1-wKB" eventType="touchUpInside" id="m96-x4-pSj"/>
-                                    <action selector="recalculatePressed:" destination="7Da-E1-wKB" eventType="touchUpInside" id="bwW-MK-T40"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split between 2 people, with 10% tip." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozs-Mt-2P1">

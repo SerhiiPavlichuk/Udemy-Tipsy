@@ -15,11 +15,10 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
 
     var tip = 0.10
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    var numberOfPeople = 2
+    var billTotal = 0.0
+    var finalResult = "0.0"
+
     @IBAction func tipChanged(_ sender: UIButton) {
         zeroPctButton.isSelected = false
         tenPctButton.isSelected = false
@@ -33,8 +32,28 @@ class CalculatorViewController: UIViewController {
 
     }
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        splitNumberLabel.text = String(format: "%.0f", sender.value)
+        numberOfPeople = Int(sender.value)
     }
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        let bill = billTextField.text!
+        if bill != "" {
+            billTotal = Double(bill)!
+            let result = billTotal * (1 + tip) / Double(numberOfPeople)
+            finalResult = String(format: "%.2f", result)
+        }
+        self.performSegue(withIdentifier: "goToResults", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "goToResults" {
+
+            let destinationVC = segue.destination as! ResultsViewController
+            destinationVC.result = finalResult
+            destinationVC.tip = Int(tip * 100)
+            destinationVC.split = numberOfPeople
+        }
     }
 }
 
